@@ -1,299 +1,95 @@
-/* Modern Calculator Styles */
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Animated background elements */
-body::before,
-body::after {
-  content: '';
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: float 8s ease-in-out infinite;
-}
-
-body::before {
-  top: -100px;
-  left: -100px;
-  animation-delay: 0s;
-}
-
-body::after {
-  bottom: -100px;
-  right: -100px;
-  animation-delay: 4s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.1;
+*{
+    margin: 0.0;
+    padding: 0.0;
+    outline: none;
+    box-sizing: border-box;
   }
-  50% {
-    transform: translateY(-30px) rotate(180deg);
-    opacity: 0.3;
+  body{
+    font-family: montserrat;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100.0vh;
+    background: #ecf0f3;
   }
-}
-
-.middle {
-  width: 380px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 25px;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.2);
-  position: relative;
-  z-index: 10;
-  animation: slideUp 0.8s ease-out;
-  overflow: hidden;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .middle{
+    width: 350px;
+    background: #ecf0f3;
+    border-radius: 20px;
+    box-shadow: 14px 14px 22px #cbced1,
+                -14px -14px 22px #cbced1;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  input[type="text"]{
+    height: 60px;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 1px;
+    border: 1px solid #e1e7ea;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 20px;
+    background: #ecf0f3;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
   }
-}
-
-.middle::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-}
-
-input[type="text"] {
-  height: 80px;
-  width: 320px;
-  margin: 30px 30px 20px 30px;
-  border-radius: 15px;
-  border: 2px solid #e2e8f0;
-  color: #2d3748;
-  font-size: 28px;
-  font-weight: 600;
-  text-align: right;
-  padding: 0 25px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.1),
-    0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-input[type="text"]:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.1),
-    0 0 0 3px rgba(102, 126, 234, 0.1),
-    0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-form .buttons {
-  width: 320px;
-  margin: 0 30px 30px 30px;
-  padding: 20px 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-input[type="button"] {
-  width: 70px;
-  height: 65px;
-  font-size: 24px;
-  font-weight: 600;
-  border-radius: 15px;
-  border: 2px solid #e2e8f0;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  color: #4a5568;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-input[type="button"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-input[type="button"]:hover::before {
-  left: 0;
-}
-
-input[type="button"]:hover {
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 
-    0 8px 25px rgba(102, 126, 234, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.3);
-  border-color: #667eea;
-}
-
-input[type="button"]:active {
-  transform: translateY(-1px);
-}
-
-/* Operator buttons */
-input[id="divide"],
-input[id="multi"],
-input[id="subs"],
-input[id="add"] {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border-color: #667eea;
-  font-weight: 700;
-}
-
-input[id="divide"]:hover,
-input[id="multi"]:hover,
-input[id="subs"]:hover,
-input[id="add"]:hover {
-  background: linear-gradient(135deg, #764ba2, #667eea);
-  transform: translateY(-3px);
-  box-shadow: 
-    0 8px 25px rgba(102, 126, 234, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.3);
-}
-
-/* Clear button */
-input#clear {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-  color: white;
-  border-color: #ff6b6b;
-  font-weight: 700;
-  grid-column: span 2;
-  width: 152px;
-}
-
-input#clear:hover {
-  background: linear-gradient(135deg, #ee5a52, #ff6b6b);
-  transform: translateY(-3px);
-  box-shadow: 
-    0 8px 25px rgba(255, 107, 107, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.3);
-}
-
-/* Equal button */
-input#equal {
-  width: 152px;
-  grid-column: span 2;
-  background: linear-gradient(135deg, #00d4aa, #00b894);
-  color: white;
-  border-color: #00d4aa;
-  font-weight: 700;
-  font-size: 28px;
-}
-
-input#equal:hover {
-  background: linear-gradient(135deg, #00b894, #00d4aa);
-  transform: translateY(-3px);
-  box-shadow: 
-    0 8px 25px rgba(0, 212, 170, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-  .middle {
-    width: 340px;
-    margin: 1rem;
+  form .buttons{
+    width: 300px;
+    margin: 10px 25px 0 25px;
+    padding: 10px 0;
   }
-  
-  input[type="text"] {
-    width: 280px;
-    margin: 25px 30px 15px 30px;
-    font-size: 24px;
+  input[type="button"]{
+    width: 58px;
+    height: 55px;
+    margin: 5px;
+    font-size: 22px;
+    line-height: 55px;
+    border-radius: 3px;
+    border: 2px solid #d9d9d9;
+    background: #ecf0f3;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+          -6px -6px 10px -1px rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0);
+      transition: transform 0.5s;
   }
-  
-  form .buttons {
-    width: 280px;
-    margin: 0 30px 25px 30px;
-    gap: 10px;
+  input[type="button"]:hover{
+    transition: .5s;
+    background: #cbced1;
+     box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                  inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                  -0.5px -0.5px 0px rgba(255,255,255,1),
+                  0.5px 0.5px 0px rgba(0,0,0,0.15),
+                  0px 12px 10px -10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.01);
+      transform: translateY(2px);
   }
-  
-  input[type="button"] {
-    width: 62px;
-    height: 58px;
-    font-size: 20px;
+  input#clear{
+    background: #ff1a1a;
+    border: 1px solid #cc0000;
+    color: white;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+          -6px -6px 10px -1px rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0);
+      transition: transform 0.5s;
   }
-  
-  input#clear,
-  input#equal {
-    width: 134px;
+  input#clear:hover{
+      background-color: orange;
   }
-}
-
-/* Button press animation */
-input[type="button"]:active {
-  transform: scale(0.95);
-}
-
-/* Success animation for calculations */
-.middle.success {
-  animation: successPulse 0.6s ease-out;
-}
-
-@keyframes successPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5a67d8, #6b46c1);
-}
+  input#equal{
+    width: 275px;
+    margin: 10px 0 10px 0;
+    font-size: 30px;
+    color: white;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+          -6px -6px 10px -1px rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0);
+      transition: transform 0.5s;
+    background: #00acee;
+    border: 1px solid #00acee;
+  }
+  input#equal:hover{
+      background-color: #24cfaa;
+  }
  
