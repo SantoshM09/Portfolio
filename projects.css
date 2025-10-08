@@ -2,25 +2,14 @@
     position: relative;
     overflow: hidden;
     max-width: 100%;
-    margin: 0 auto;
 }
 
 .projects-track {
     display: flex;
     gap: 1rem;
-    transition: transform 0.8s ease;
+    transition: transform 0.5s ease;
     will-change: transform;
-    padding: 0 1rem;
-    animation: continuousScroll 20s linear infinite;
-}
-
-@keyframes continuousScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-.projects-carousel:hover .projects-track {
-    animation-play-state: paused;
+    padding: 0 0.5rem;
 }
 
 .project-slide {
@@ -135,12 +124,6 @@
     pointer-events: none;
     transform: translateY(-50%);
     padding: 0 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.projects-carousel:hover .projects-nav {
-    opacity: 1;
 }
 
 .projects-button {
@@ -164,7 +147,23 @@
 }
 
 .projects-dots {
-    display: none;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.projects-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: color-mix(in oklab, var(--text) 30%, transparent);
+    border: 1px solid var(--surface-border);
+    cursor: pointer;
+}
+
+.projects-dot[aria-current="true"] {
+    background: var(--secondary);
 }
 
 @media (max-width: 768px) {
