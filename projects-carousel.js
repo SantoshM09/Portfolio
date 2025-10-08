@@ -10,7 +10,8 @@
     const AUTO_MS = 4000;
 
     function update() {
-      const x = `translateX(${-index * 100}%)`;
+      const slideWidth = 280 + 16; // slide width + gap
+      const x = `translateX(${-index * slideWidth}px)`;
       track.style.transform = x;
       Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-current', i === index ? 'true' : 'false'));
     }
