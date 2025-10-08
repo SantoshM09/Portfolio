@@ -1,0 +1,100 @@
+.projects-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-track {
+    display: flex;
+    gap: 1.25rem;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.project-slide {
+    min-width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px var(--surface-shadow);
+    padding: 1.5rem;
+}
+
+.project-slide h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.project-slide p {
+    margin: 0.25rem 0 0.75rem 0;
+}
+
+.project-slide a {
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 999px;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    background: color-mix(in oklab, var(--primary) 10%, transparent);
+}
+
+.project-slide a:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #F2F2F2;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--accent-shadow);
+}
+
+.projects-nav {
+    position: absolute;
+    inset: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.projects-button {
+    pointer-events: auto;
+    background: color-mix(in oklab, var(--bg) 60%, #000 40%);
+    border: 1px solid var(--surface-border);
+    color: var(--text);
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.25s ease;
+}
+
+.projects-button:hover { transform: scale(1.05); }
+
+.projects-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.projects-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: color-mix(in oklab, var(--text) 30%, transparent);
+    border: 1px solid var(--surface-border);
+    cursor: pointer;
+}
+
+.projects-dot[aria-current="true"] {
+    background: var(--secondary);
+}
+
+@media (max-width: 768px) {
+    .project-slide { padding: 1.2rem; }
+}
+
+
