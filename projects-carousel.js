@@ -25,8 +25,14 @@
       dotsWrap.appendChild(dot);
     });
 
-    function prev() { index = (index - 1 + slides.length) % slides.length; update(); }
-    function next() { index = (index + 1) % slides.length; update(); }
+    function prev() { 
+      index = (index - 1 + slides.length) % slides.length; 
+      update(); 
+    }
+    function next() { 
+      index = (index + 1) % slides.length; 
+      update(); 
+    }
 
     btnPrev.addEventListener('click', prev);
     btnNext.addEventListener('click', next);
