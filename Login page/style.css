@@ -6,33 +6,6 @@
 }
 
 :root {
-    --bg: #F2F2F2;
-    --text: #174D38;
-    --primary: #174D38;
-    --secondary: #4D1717;
-    --surface: rgba(203, 203, 203, 0.95);
-    --surface-border: rgba(23, 77, 56, 0.3);
-}
-
-[data-theme="ocean"] {
-    --bg: #0e141b;
-    --text: #e6f2ff;
-    --primary: #5ec2ff;
-    --secondary: #1ac8c8;
-    --surface: rgba(7, 12, 18, 0.7);
-    --surface-border: rgba(94, 194, 255, 0.28);
-}
-
-[data-theme="rose"] {
-    --bg: #fff7fa;
-    --text: #3e1022;
-    --primary: #d94682;
-    --secondary: #7c3aed;
-    --surface: rgba(255, 238, 246, 0.95);
-    --surface-border: rgba(217, 70, 130, 0.25);
-}
-
-[data-theme="dark"] {
     --bg: #0b0b0d;
     --text: #e9e9ef;
     --primary: #8be28b;
