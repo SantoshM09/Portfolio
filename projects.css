@@ -93,6 +93,9 @@
     transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.25s ease;
     background: color-mix(in oklab, var(--primary) 10%, transparent);
     font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .project-slide a:hover {

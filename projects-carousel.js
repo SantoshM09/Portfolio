@@ -39,7 +39,13 @@
 
     // Swipe support
     let startX = 0; let delta = 0; let dragging = false;
-    track.addEventListener('pointerdown', (e) => { dragging = true; startX = e.clientX; track.setPointerCapture(e.pointerId); });
+    track.addEventListener('pointerdown', (e) => { 
+      // Don't interfere with clickable elements
+      if (e.target.tagName === 'A' || e.target.closest('a')) return;
+      dragging = true; 
+      startX = e.clientX; 
+      track.setPointerCapture(e.pointerId); 
+    });
     track.addEventListener('pointermove', (e) => { if (!dragging) return; delta = e.clientX - startX; track.style.transform = `translateX(${(-index * slideWidth) + delta}px)`; });
     track.addEventListener('pointerup', () => { dragging = false; if (Math.abs(delta) > slideWidth * 0.3) { delta < 0 ? next() : prev(); } else { update(); } delta = 0; });
 

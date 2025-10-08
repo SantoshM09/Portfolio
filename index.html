@@ -99,5 +99,37 @@
   </footer>
   <script src="scroll-effects.js"></script>
   <script src="projects-carousel.js"></script>
+  <script>
+    // Ensure visit buttons work properly
+    document.addEventListener('DOMContentLoaded', function() {
+      const visitButtons = document.querySelectorAll('.project-slide a[href]');
+      visitButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent default behavior
+          const href = this.getAttribute('href');
+          console.log('Opening:', href);
+          
+          // Add visual feedback
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 150);
+          
+          // Force open in new tab
+          try {
+            const newWindow = window.open(href, '_blank', 'noopener,noreferrer');
+            if (!newWindow) {
+              console.log('Popup blocked, trying direct navigation');
+              window.location.href = href;
+            }
+          } catch (error) {
+            console.error('Error opening link:', error);
+            // Fallback: try direct navigation
+            window.location.href = href;
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
