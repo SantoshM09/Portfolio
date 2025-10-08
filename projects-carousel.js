@@ -40,8 +40,8 @@
     // Swipe support
     let startX = 0; let delta = 0; let dragging = false;
     track.addEventListener('pointerdown', (e) => { dragging = true; startX = e.clientX; track.setPointerCapture(e.pointerId); });
-    track.addEventListener('pointermove', (e) => { if (!dragging) return; delta = e.clientX - startX; track.style.transform = `translateX(${(-index * 100) + (delta / track.clientWidth) * 100}%)`; });
-    track.addEventListener('pointerup', () => { dragging = false; if (Math.abs(delta) > track.clientWidth * 0.15) { delta < 0 ? next() : prev(); } else { update(); } delta = 0; });
+    track.addEventListener('pointermove', (e) => { if (!dragging) return; delta = e.clientX - startX; track.style.transform = `translateX(${(-index * slideWidth) + delta}px)`; });
+    track.addEventListener('pointerup', () => { dragging = false; if (Math.abs(delta) > slideWidth * 0.3) { delta < 0 ? next() : prev(); } else { update(); } delta = 0; });
 
     // Keyboard
     root.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); });
