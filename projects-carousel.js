@@ -6,6 +6,8 @@
     const btnNext = root.querySelector('[data-dir="next"]');
     const dotsWrap = root.querySelector('.projects-dots');
     let index = 0;
+    let autoTimer = null;
+    const AUTO_MS = 4000;
 
     function update() {
       const x = `translateX(${-index * 100}%)`;
@@ -37,7 +39,22 @@
     // Keyboard
     root.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); });
 
+    // Autoplay controls
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(next, AUTO_MS);
+    }
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
+    root.addEventListener('mouseenter', stopAuto);
+    root.addEventListener('mouseleave', startAuto);
+    root.addEventListener('focusin', stopAuto);
+    root.addEventListener('focusout', startAuto);
+    document.addEventListener('visibilitychange', () => { document.hidden ? stopAuto() : startAuto(); });
+
     update();
+    startAuto();
   }
 
   function boot() {
